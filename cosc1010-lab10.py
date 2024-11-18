@@ -43,3 +43,23 @@ def get_hash(to_hash):
 # Hash each individual password and compare it against the stored hash.
 # - When you find the match, print the plaintext version of the password.
 # - End your loop.
+try:
+    path=Path('hash')
+    password=path.read_text()
+
+except:
+    print("file not found, please try again")
+try:
+    path2=Path("rockyou.txt")
+    guesses=path2.read_text()
+    guess_list=guesses.splitlines()
+except:
+    print("file not found, please try again")
+
+
+for guess in guess_list:
+    if get_hash(guess)==password:
+        print(f'the password is {guess}')
+    else:
+        pass
+
